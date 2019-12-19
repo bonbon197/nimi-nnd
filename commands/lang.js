@@ -32,9 +32,9 @@ exports.Run = async function Run(caller, command, GUILD) {
   let lang = caller.utils.getLang(guild);
   if (command.msg.author.id === process.env.OWNER || command.msg.member.permission.has('manageGuild')) {
     const code = (command.params[0]) ? Sanitize(command.params[0]) : 'thisisntalanguage';
-    if (fs.existsSync(`./lang_c/${code}.json`)) {
+    if (fs.existsSync(`./lenguahe/${code}.json`)) {
       guild.lang = code;
-      lang = require(`../lang_c/${code}.json`); // eslint-disable-line
+      lang = require(`../lenguahe/${code}.json`); // eslint-disable-line
       caller.utils.message(command.msg.channel.id, {
         embed: {
           description: lang.lang.langUpdate,
@@ -43,7 +43,7 @@ exports.Run = async function Run(caller, command, GUILD) {
       });
       caller.utils.updateGuild(guild);
     } else {
-      const files = await readdir('./lang_c/');
+      const files = await readdir('./lenguahe/');
       let description = '';
       files.forEach((file) => {
         if (file.indexOf('.json') !== -1) {

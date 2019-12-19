@@ -134,13 +134,13 @@ class Utils {
       lang,
     } = guild;
     if (!guild.lang) lang = 'en';
-    if (!fs.existsSync(`./lang_c/${lang}.json`)) lang = 'en';
+    if (!fs.existsSync(`./lenguahe/${lang}.json`)) lang = 'en';
     try {
-      return require(`../lang_c/${lang}.json`); // eslint-disable-line
+      return require(`../lenguahe/${lang}.json`); // eslint-disable-line
     } catch (e) {
       Logger.Error('Utils', 'getLang', `Error when getting file: ${lang} :: ${e}`);
     } finally {
-      delete require.cache[require.resolve(`../lang_c/${lang}.json`)];
+      delete require.cache[require.resolve(`../lenguahe/${lang}.json`)];
     }
   }
 
