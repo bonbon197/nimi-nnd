@@ -11,6 +11,17 @@ const IPC = require('./src/IPC.js');
 
 var http = require('http'); http.createServer(function (req, res) { res.writeHead(200, {'Content-Type': 'text/plain'}); res.send('it is running\n'); }).listen(process.env.PORT || 8080);
 
+const fetch = require("node-fetch");
+
+const wakeUpDyno = (url, interval) => {
+    const milliseconds = interval * 20000;
+    setTimeout(() => {
+        fetch(url);
+    }, milliseconds);
+};
+
+module.exports = wakeUpDyno;
+
 class Zira {
   constructor({
     firstShardID,
