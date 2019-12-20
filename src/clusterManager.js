@@ -14,8 +14,8 @@ class ClusterManager {
     this.stats = {};
 
     if (process.env.ID && process.env.DBL && process.env.DBOT) {
-      logger.Info('Cluster', 'Posting', '600000ms');
-      setInterval(this.PostStats, 600000, this);
+      logger.Info('Cluster', 'Posting', '290000ms');
+      setInterval(this.PostStats, 290000, this);
     }
 
     cluster.on('online', (worker) => {
