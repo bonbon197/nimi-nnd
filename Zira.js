@@ -8,7 +8,7 @@ const CommandHandler = require('./src/CommandHandler.js');
 const DB = require('./src/DB.js');
 const Utils = require('./src/Utils.js');
 const IPC = require('./src/IPC.js');
-const woke = require("woke.js");
+const woke = require("./woke.js");
 
 const PORT = 3000;
 const DYNO_URL = "https://nimi-sensei.herokuapp.com/";
