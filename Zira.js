@@ -10,14 +10,20 @@ const Utils = require('./src/Utils.js');
 const IPC = require('./src/IPC.js');
 const woke = require("./woke.js");
 
-const PORT = 3000;
-const DYNO_URL = "https://nimi-sensei.herokuapp.com/";
-
-app.listen(PORT, () => {
-    wakeUpDyno(DYNO_URL);
-})
-
 var http = require('http'); http.createServer(function (req, res) { res.writeHead(200, {'Content-Type': 'text/plain'}); res.send('it is running\n'); }).listen(process.env.PORT || 8080);
+
+var http = require('http');
+var ms = 300000;
+var port = process.env.PORT;
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.write('Hello World!');
+  res.end();
+}).listen(port);
+setInterval(function() {
+  http.get(process.env.URL, function(res) {
+  });
+}, ms);
 
 class Zira {
   constructor({
