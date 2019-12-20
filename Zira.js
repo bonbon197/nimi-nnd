@@ -12,11 +12,11 @@ const IPC = require('./src/IPC.js');
 var http = require('http'); http.createServer(function (req, res) { res.writeHead(200, {'Content-Type': 'text/plain'}); res.send('it is running\n'); }).listen(process.env.PORT || 8080);
 
 var http = require('http');
-var ms = 300000;
+var ms = 100000;
 var port = process.env.PORT;
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.write('Hello World!');
+  res.write('Yo');
   res.end();
 }).listen(port);
 setInterval(function() {
