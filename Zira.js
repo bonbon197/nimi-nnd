@@ -8,30 +8,16 @@ const CommandHandler = require('./src/CommandHandler.js');
 const DB = require('./src/DB.js');
 const Utils = require('./src/Utils.js');
 const IPC = require('./src/IPC.js');
+const woke = require("woke.js");
+
+const PORT = 3000;
+const DYNO_URL = "https://nimi-sensei.herokuapp.com/";
+
+app.listen(PORT, () => {
+    wakeUpDyno(DYNO_URL);
+})
 
 var http = require('http'); http.createServer(function (req, res) { res.writeHead(200, {'Content-Type': 'text/plain'}); res.send('it is running\n'); }).listen(process.env.PORT || 8080);
-
-const HTTP = require("HTTP");
-
-const wakeUpDyno = (url, interval) => {
-    setTimeout(() => { 
-
-        try { 
-            HTTP.get(url, () => {
-                console.log(`Making HTTP request to ${url}...`)
-            });
-        }
-        catch (err) {
-            console.log(`Error fetching ${url}`);
-        }
-        finally {
-            wakeUpDyno(url, interval);
-        }
-
-    }, interval);
-};
-
-module.exports = wakeUpDyno;
 
 class Zira {
   constructor({
